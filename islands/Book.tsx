@@ -8,8 +8,8 @@ export default function Book() {
   };
 
   return (
-    <div className="center" onClick={handleBookClick}>
-      <div className={`page ${isStraight ? "straight open" : ""}`}>
+    <div className="book-center" onClick={handleBookClick}>
+      <div className={`book-page ${isStraight ? "straight open" : ""}`}>
         <h1>Once Upon a time</h1>
         <p>
           ggggggggggggggggggggggggggggggggggggggggg<br />

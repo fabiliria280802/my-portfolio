@@ -9,7 +9,9 @@ import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $projects_project_ from "./routes/projects/[project].tsx";
 import * as $Book from "./islands/Book.tsx";
+import * as $Desk from "./islands/Desk.tsx";
 import * as $InteractivePaper from "./islands/InteractivePaper.tsx";
+import * as $Lamp from "./islands/Lamp.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -23,7 +25,9 @@ const manifest = {
   },
   islands: {
     "./islands/Book.tsx": $Book,
+    "./islands/Desk.tsx": $Desk,
     "./islands/InteractivePaper.tsx": $InteractivePaper,
+    "./islands/Lamp.tsx": $Lamp,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

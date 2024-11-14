@@ -1,10 +1,9 @@
 import { h } from "preact";
-import Book from "../islands/Book.tsx";
-
+import  Desk from "../islands/Desk.tsx";
 export default function Home() {
   return (
     <div>
-      <Book />
+      <Desk />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
 
 body {
     margin: 0;
@@ -9,14 +10,14 @@ body {
     background: #ccc;
 }
 
-.center {
+.book-center {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.page {
+.book-page {
     width: 400px;
     height: 600px;
     padding: 30px;
@@ -24,40 +25,47 @@ body {
     border-left: 20px solid #6737ec;
     transform: rotate(-45deg) skewY(10deg) scale(.8);
     box-shadow: -50px 50px 50px rgba(0, 0, 0, .5);
-    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out; /* Añadida transición suave */
-    position: relative; /* Para los pseudo-elementos */
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    position: relative;
 }
 
-.page.straight {
-    transform: rotate(0deg) skewY(0deg) scale(1); /* Estado enderezado */
+.book-page.straight {
+    transform: rotate(0deg) skewY(0deg) scale(1);
 }
 
-.page.open {
-    border-left: 5px solid #6737ec; /* Reducir el grosor para simular la división de un libro abierto */
-    box-shadow: -20px 30px 50px rgba(0, 0, 0, 0.3); /* Ajustar la sombra para que parezca abierta */
+.book-page.open {
+    border-left: 5px solid #6737ec;
+    box-shadow: -20px 30px 50px rgba(0, 0, 0, 0.3);
 }
 
-.page.open::before,
-.page.open::after {
-    content: none; /* Eliminar los pseudo-elementos */
+.book-page.open::before,
+.book-page.open::after {
+    content: none;
 }
 
-.page p {
+.book-page p {
     margin: 0;
     padding: 0;
     text-align: justify;
     font-size: 14px;
 }
 
-.page h1 {
+.book-page h1 {
     margin: 0 0 20px 0;
     padding: 0;
     text-align: center;
     font-size: 25px;
     color: #9e9e9e;
+    font-family: unifrakturmaguntia-regular;
 }
 
-.page::before {
+.unifrakturmaguntia-regular {
+    font-family: "UnifrakturMaguntia", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.book-page::before {
     content: '';
     width: 30px;
     height: 100%;
@@ -68,7 +76,7 @@ body {
     transform: skewY(-45deg) translate(-50px, -36px);
 }
 
-.page::after {
+.book-page::after {
     content: '';
     width: 104%;
     height: 30px;
@@ -79,6 +87,58 @@ body {
     transform: skewX(-47.9deg) translate(-5px, -30px);
 }
 
+.lamp-container{
+    height: 500px;
+    width: 500px;
+    position: absolute;
+    transform: translate(-50px, -50px);
+    left: 50%;
+    top: 50%;
+}
+
+.lamp-main{
+    height: 0;
+    width: 170px;
+    border-bottom: 150px solid #230675;
+    border-right: 30px solid transparent;
+    border-left: 30px solid transparent;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 100px;
+}
+
+.lamp-main::before{
+    content: "";
+    position: absolute;
+    height: 100px;
+    width: 10px;
+    background-color: #ffffff;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 150px;
+}
+
+.lamp-main::after{
+    content: "";
+    position: absolute;
+    height: 50px;
+    width: 100px;
+    background-color: #230675;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 230px;
+    border-radius: 50px 50px 0 0;
+}
+
+.input[type="checkbox"]{
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #ffffff;
+}
 
 /*
 body, html {
