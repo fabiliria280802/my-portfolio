@@ -7,7 +7,9 @@ import * as $_app from "./routes/_app.tsx";
 import * as $api_joke from "./routes/api/joke.ts";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
-import * as $Counter from "./islands/Counter.tsx";
+import * as $projects_project_ from "./routes/projects/[project].tsx";
+import * as $Book from "./islands/Book.tsx";
+import * as $InteractivePaper from "./islands/InteractivePaper.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -17,9 +19,11 @@ const manifest = {
     "./routes/api/joke.ts": $api_joke,
     "./routes/greet/[name].tsx": $greet_name_,
     "./routes/index.tsx": $index,
+    "./routes/projects/[project].tsx": $projects_project_,
   },
   islands: {
-    "./islands/Counter.tsx": $Counter,
+    "./islands/Book.tsx": $Book,
+    "./islands/InteractivePaper.tsx": $InteractivePaper,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;
