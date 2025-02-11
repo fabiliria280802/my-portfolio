@@ -4,30 +4,69 @@
 
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
-import * as $api_joke from "./routes/api/joke.ts";
-import * as $greet_name_ from "./routes/greet/[name].tsx";
+import * as $api_certifications from "./routes/api/certifications.ts";
+import * as $api_contact from "./routes/api/contact.ts";
+import * as $api_experiences from "./routes/api/experiences.ts";
+import * as $api_hackathons from "./routes/api/hackathons.ts";
+import * as $api_languages from "./routes/api/languages.ts";
+import * as $api_researchs from "./routes/api/researchs.ts";
+import * as $certifications_certification_ from "./routes/certifications/[certification].tsx";
+import * as $certifications_index from "./routes/certifications/index.tsx";
+import * as $experiences_experience_ from "./routes/experiences/[experience].tsx";
+import * as $experiences_index from "./routes/experiences/index.tsx";
+import * as $hackathons_hackathon_ from "./routes/hackathons/[hackathon].tsx";
+import * as $hackathons_index from "./routes/hackathons/index.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $projects_project_ from "./routes/projects/[project].tsx";
-import * as $Book from "./islands/Book.tsx";
-import * as $Desk from "./islands/Desk.tsx";
+import * as $projects_index from "./routes/projects/index.tsx";
+import * as $researchs_research_ from "./routes/researchs/[research].tsx";
+import * as $researchs_index from "./routes/researchs/index.tsx";
+import * as $CertificationsCarousel from "./islands/CertificationsCarousel.tsx";
+import * as $CertificationsFilter from "./islands/CertificationsFilter.tsx";
+import * as $ContactForm from "./islands/ContactForm.tsx";
+import * as $ExperiencesTabs from "./islands/ExperiencesTabs.tsx";
+import * as $HackathonsTimeline from "./islands/HackathonsTimeline.tsx";
+import * as $HomeInteractive from "./islands/HomeInteractive.tsx";
 import * as $InteractivePaper from "./islands/InteractivePaper.tsx";
-import * as $Lamp from "./islands/Lamp.tsx";
+import * as $ProjectsFilter from "./islands/ProjectsFilter.tsx";
+import * as $ResearchsAccordion from "./islands/ResearchsAccordion.tsx";
+import * as $ThemeToggle from "./islands/ThemeToggle.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
-    "./routes/api/joke.ts": $api_joke,
-    "./routes/greet/[name].tsx": $greet_name_,
+    "./routes/api/certifications.ts": $api_certifications,
+    "./routes/api/contact.ts": $api_contact,
+    "./routes/api/experiences.ts": $api_experiences,
+    "./routes/api/hackathons.ts": $api_hackathons,
+    "./routes/api/languages.ts": $api_languages,
+    "./routes/api/researchs.ts": $api_researchs,
+    "./routes/certifications/[certification].tsx":
+      $certifications_certification_,
+    "./routes/certifications/index.tsx": $certifications_index,
+    "./routes/experiences/[experience].tsx": $experiences_experience_,
+    "./routes/experiences/index.tsx": $experiences_index,
+    "./routes/hackathons/[hackathon].tsx": $hackathons_hackathon_,
+    "./routes/hackathons/index.tsx": $hackathons_index,
     "./routes/index.tsx": $index,
     "./routes/projects/[project].tsx": $projects_project_,
+    "./routes/projects/index.tsx": $projects_index,
+    "./routes/researchs/[research].tsx": $researchs_research_,
+    "./routes/researchs/index.tsx": $researchs_index,
   },
   islands: {
-    "./islands/Book.tsx": $Book,
-    "./islands/Desk.tsx": $Desk,
+    "./islands/CertificationsCarousel.tsx": $CertificationsCarousel,
+    "./islands/CertificationsFilter.tsx": $CertificationsFilter,
+    "./islands/ContactForm.tsx": $ContactForm,
+    "./islands/ExperiencesTabs.tsx": $ExperiencesTabs,
+    "./islands/HackathonsTimeline.tsx": $HackathonsTimeline,
+    "./islands/HomeInteractive.tsx": $HomeInteractive,
     "./islands/InteractivePaper.tsx": $InteractivePaper,
-    "./islands/Lamp.tsx": $Lamp,
+    "./islands/ProjectsFilter.tsx": $ProjectsFilter,
+    "./islands/ResearchsAccordion.tsx": $ResearchsAccordion,
+    "./islands/ThemeToggle.tsx": $ThemeToggle,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

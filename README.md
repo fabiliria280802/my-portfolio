@@ -2,8 +2,19 @@
 This is my personal repo for my portfolio. This website is built in Deno + Fresh.js. The design concept was inspired by my little sis ideas & pinterest stuff.
 
 # Run project locally
-    Write ```bash deno task start``` on the terminal
+    Write 
+    ```bash 
+    deno task start
+    ``` 
+    on the terminal
     App will be running in http://localhost:8080
+
+# How to add some dependencies
+    Write 
+    ```bash 
+    deno install npm:preact
+    ``` 
+    on the terminal
 
 # Island architecture
 The islands architecture encourages small, focused chunks of interactivity within server-rendered web pages. The output of islands is progressively enhanced HTML, with more specificity around how the enhancement occurs. Rather than a single application being in control of full-page rendering, there are multiple entry points.
@@ -29,7 +40,11 @@ For more info check out [this article](https://www.patterns.dev/vanilla/islands-
 # Which islands this project has?
 - **Home**: This is the main page of the portfolio.
 - **Projects**: This is a list of all the projects I have done.
-- **About**: This is a brief description of who I am and what I do.
+- **About me**: This is a brief description of who I am and what I do.
 - **Contact**: This is a contact form where you can send me a message.
+- **Certifications**:
+- **Hacketons**:
+- **Experiences**:
+- **Researchs**:
 
 # where is deploy?
