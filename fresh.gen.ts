@@ -9,6 +9,7 @@ import * as $api_contact from "./routes/api/contact.ts";
 import * as $api_experiences from "./routes/api/experiences.ts";
 import * as $api_hackathons from "./routes/api/hackathons.ts";
 import * as $api_languages from "./routes/api/languages.ts";
+import * as $api_login from "./routes/api/login.ts";
 import * as $api_researchs from "./routes/api/researchs.ts";
 import * as $certifications_certification_ from "./routes/certifications/[certification].tsx";
 import * as $certifications_index from "./routes/certifications/index.tsx";
@@ -17,6 +18,7 @@ import * as $experiences_index from "./routes/experiences/index.tsx";
 import * as $hackathons_hackathon_ from "./routes/hackathons/[hackathon].tsx";
 import * as $hackathons_index from "./routes/hackathons/index.tsx";
 import * as $index from "./routes/index.tsx";
+import * as $logout from "./routes/logout.ts";
 import * as $projects_project_ from "./routes/projects/[project].tsx";
 import * as $projects_index from "./routes/projects/index.tsx";
 import * as $researchs_research_ from "./routes/researchs/[research].tsx";
@@ -28,6 +30,7 @@ import * as $ExperiencesTabs from "./islands/ExperiencesTabs.tsx";
 import * as $HackathonsTimeline from "./islands/HackathonsTimeline.tsx";
 import * as $HomeInteractive from "./islands/HomeInteractive.tsx";
 import * as $InteractivePaper from "./islands/InteractivePaper.tsx";
+import * as $Navbar from "./islands/Navbar.tsx";
 import * as $ProjectsFilter from "./islands/ProjectsFilter.tsx";
 import * as $ResearchsAccordion from "./islands/ResearchsAccordion.tsx";
 import * as $ThemeToggle from "./islands/ThemeToggle.tsx";
@@ -42,6 +45,7 @@ const manifest = {
     "./routes/api/experiences.ts": $api_experiences,
     "./routes/api/hackathons.ts": $api_hackathons,
     "./routes/api/languages.ts": $api_languages,
+    "./routes/api/login.ts": $api_login,
     "./routes/api/researchs.ts": $api_researchs,
     "./routes/certifications/[certification].tsx":
       $certifications_certification_,
@@ -51,6 +55,7 @@ const manifest = {
     "./routes/hackathons/[hackathon].tsx": $hackathons_hackathon_,
     "./routes/hackathons/index.tsx": $hackathons_index,
     "./routes/index.tsx": $index,
+    "./routes/logout.ts": $logout,
     "./routes/projects/[project].tsx": $projects_project_,
     "./routes/projects/index.tsx": $projects_index,
     "./routes/researchs/[research].tsx": $researchs_research_,
@@ -64,6 +69,7 @@ const manifest = {
     "./islands/HackathonsTimeline.tsx": $HackathonsTimeline,
     "./islands/HomeInteractive.tsx": $HomeInteractive,
     "./islands/InteractivePaper.tsx": $InteractivePaper,
+    "./islands/Navbar.tsx": $Navbar,
     "./islands/ProjectsFilter.tsx": $ProjectsFilter,
     "./islands/ResearchsAccordion.tsx": $ResearchsAccordion,
     "./islands/ThemeToggle.tsx": $ThemeToggle,

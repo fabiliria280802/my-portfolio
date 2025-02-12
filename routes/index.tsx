@@ -1,15 +1,31 @@
-import { h } from 'preact';
 import i18next from '../i18n.ts';
+import Navbar from '../islands/Navbar.tsx';
+import type { Handlers, PageProps } from "$fresh/server.ts";
+import { getCookies } from "$std/http/cookie.ts";
+import Login from "../components/Login.tsx";
 
-export default async function Home() {
-  const welcomeMessage = i18next.t('welcome_message');
-  const contact = i18next.t('contact');
+interface Data {
+  isAllowed: boolean;
+}
 
+export const handler: Handlers = {
+  GET(req, ctx) {
+    const cookies = getCookies(req.headers);
+    return ctx.render!({ isAllowed: cookies.auth === "bar" });
+  },
+};
+
+export default function Home({ data }: PageProps<Data>) {
   return (
     <div>
-      <h1>{welcomeMessage}</h1>
-      <a href="/contact">{contact}</a>
+      <Navbar />
+      <h1>hola</h1>
+      <div>
+        <div>
+          You currently {data.isAllowed ? "are" : "are not"} logged in.
+        </div>
+        {!data.isAllowed ? <Login /> : <a href="/logout">Logout</a>}
+      </div>
     </div>
   );
 }
-
