@@ -2,3 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
+
+:root {
+    --background: #ffffff;
+    --background-dark: #121212;
+    --color-text: #1a1a1a;
+    --color-text-dark: #ffffff;
+  }
+
+body {
+    background: rgba(var(--background));
+}
+
+.transition-theme {
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  }
+
+@media (prefers-color-scheme: dark){
+    :root {
+        --color-background: #121212;
+        --color-background-dark: #ffffff;
+        --color-text: #ffffff;
+        --color-text-dark: #1a1a1a;
+      }
+}
+
+  
+  

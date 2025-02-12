@@ -4,6 +4,7 @@
 
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
+import * as $_layout from "./routes/_layout.tsx";
 import * as $api_certifications from "./routes/api/certifications.ts";
 import * as $api_contact from "./routes/api/contact.ts";
 import * as $api_experiences from "./routes/api/experiences.ts";
@@ -18,6 +19,7 @@ import * as $experiences_index from "./routes/experiences/index.tsx";
 import * as $hackathons_hackathon_ from "./routes/hackathons/[hackathon].tsx";
 import * as $hackathons_index from "./routes/hackathons/index.tsx";
 import * as $index from "./routes/index.tsx";
+import * as $login_index from "./routes/login/index.ts";
 import * as $logout from "./routes/logout.ts";
 import * as $projects_project_ from "./routes/projects/[project].tsx";
 import * as $projects_index from "./routes/projects/index.tsx";
@@ -27,6 +29,7 @@ import * as $CertificationsCarousel from "./islands/CertificationsCarousel.tsx";
 import * as $CertificationsFilter from "./islands/CertificationsFilter.tsx";
 import * as $ContactForm from "./islands/ContactForm.tsx";
 import * as $ExperiencesTabs from "./islands/ExperiencesTabs.tsx";
+import * as $Footer from "./islands/Footer.tsx";
 import * as $HackathonsTimeline from "./islands/HackathonsTimeline.tsx";
 import * as $HomeInteractive from "./islands/HomeInteractive.tsx";
 import * as $InteractivePaper from "./islands/InteractivePaper.tsx";
@@ -40,6 +43,7 @@ const manifest = {
   routes: {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
+    "./routes/_layout.tsx": $_layout,
     "./routes/api/certifications.ts": $api_certifications,
     "./routes/api/contact.ts": $api_contact,
     "./routes/api/experiences.ts": $api_experiences,
@@ -55,6 +59,7 @@ const manifest = {
     "./routes/hackathons/[hackathon].tsx": $hackathons_hackathon_,
     "./routes/hackathons/index.tsx": $hackathons_index,
     "./routes/index.tsx": $index,
+    "./routes/login/index.ts": $login_index,
     "./routes/logout.ts": $logout,
     "./routes/projects/[project].tsx": $projects_project_,
     "./routes/projects/index.tsx": $projects_index,
@@ -66,6 +71,7 @@ const manifest = {
     "./islands/CertificationsFilter.tsx": $CertificationsFilter,
     "./islands/ContactForm.tsx": $ContactForm,
     "./islands/ExperiencesTabs.tsx": $ExperiencesTabs,
+    "./islands/Footer.tsx": $Footer,
     "./islands/HackathonsTimeline.tsx": $HackathonsTimeline,
     "./islands/HomeInteractive.tsx": $HomeInteractive,
     "./islands/InteractivePaper.tsx": $InteractivePaper,

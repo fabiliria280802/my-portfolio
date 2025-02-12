@@ -3,6 +3,7 @@ import Navbar from '../islands/Navbar.tsx';
 import type { Handlers, PageProps } from "$fresh/server.ts";
 import { getCookies } from "$std/http/cookie.ts";
 import Login from "../components/Login.tsx";
+import Footer from "../islands/Footer.tsx";
 
 interface Data {
   isAllowed: boolean;
@@ -17,15 +18,12 @@ export const handler: Handlers = {
 
 export default function Home({ data }: PageProps<Data>) {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-      <h1>hola</h1>
-      <div>
-        <div>
-          You currently {data.isAllowed ? "are" : "are not"} logged in.
-        </div>
-        {!data.isAllowed ? <Login /> : <a href="/logout">Logout</a>}
-      </div>
+      <main className="flex-grow">
+        {data}
+      </main>
+      <Footer />
     </div>
   );
 }
