@@ -1,10 +1,14 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import ProjectCard from "../../components/ProjectCard.tsx";
 import Repository from "../../interfaces/Project.ts"
+import 'dotenv/config';
 
 export const handler: Handlers = {
   async GET(_req, ctx) {
-    const username = "TU_USUARIO_GITHUB"; 
+    const username = Deno.env.get("GITHUB_USERNAME"); 
+    if (!username) {
+      return new Response("GITHUB_USERNAME no está definido", { status: 500 });
+    }
     const response = await fetch(`https://api.github.com/users/${username}/repos`);
 
     if (!response.ok) {

@@ -9,14 +9,26 @@ export default {
   theme: {
     extend: {
       colors: {
+        primary: {
+          light: 'rgb(var(--color-primary-light) / <alpha-value>)',
+          dark: 'rgb(var(--color-primary-dark) / <alpha-value>)',
+        },
+        secondary: {
+          light: 'rgb(var(--color-secondary-light) / <alpha-value>)',
+          dark: 'rgb(var(--color-secondary-dark) / <alpha-value>)',
+        },
+        accent: {
+          light: 'rgb(var(--color-accent-light) / <alpha-value>)',
+          dark: 'rgb(var(--color-accent-dark) / <alpha-value>)',
+        },
         background: {
-          DEFAULT: 'rgba(var(--background))',
-          dark: 'rgba(var(--background-dark))',
+          light: 'rgb(var(--color-background-light) / <alpha-value>)',
+          dark: 'rgb(var(--color-background-dark) / <alpha-value>)',
         },
         text: {
-          DEFAULT: 'rgba(var(--color-text))',
-          dark: 'rgba(var(--color-text-dark))',
-        }
+          light: 'rgb(var(--color-text-light) / <alpha-value>)',
+          dark: 'rgb(var(--color-text-dark) / <alpha-value>)',
+        },
       }
     },
   },

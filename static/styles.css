@@ -3,29 +3,89 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
 
-:root {
-    --background: #ffffff;
-    --background-dark: #121212;
-    --color-text: #1a1a1a;
-    --color-text-dark: #ffffff;
-  }
-
-body {
-    background: rgba(var(--background));
-}
-
-.transition-theme {
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
-  }
-
-@media (prefers-color-scheme: dark){
+@layer base {
     :root {
-        --color-background: #121212;
-        --color-background-dark: #ffffff;
-        --color-text: #ffffff;
-        --color-text-dark: #1a1a1a;
-      }
-}
+      --color-primary-light: 59 130 246;    /* Blue-500 */
+      --color-secondary-light: 147 197 253;  /* Blue-300 */
+      --color-accent-light: 37 99 235;      /* Blue-600 */
+      --color-background-light: 255 255 255; /* White */
+      --color-text-light: 31 41 55;         /* Gray-800 */
+  
+      --color-primary-dark: 96 165 250;     /* Blue-400 */
+      --color-secondary-dark: 59 130 246;   /* Blue-500 */
+      --color-accent-dark: 147 197 253;     /* Blue-300 */
+      --color-background-dark: 17 24 39;    /* Gray-900 */
+      --color-text-dark: 243 244 246;       /* Gray-100 */
+    }
+  }
+  
 
+  @layer components {
+    .theme-transition {
+      @apply transition-colors duration-300 ease-in-out;
+    }
   
+    .animate-on-scroll {
+      @apply transition-all duration-700 ease-out;
+    }
   
+    .animate-on-scroll.show {
+      @apply opacity-100 translate-y-0;
+    }
+  
+    .animation-delay-200 {
+      animation-delay: 200ms;
+    }
+  
+    .animation-delay-400 {
+      animation-delay: 400ms;
+    }
+  
+    .animation-delay-600 {
+      animation-delay: 600ms;
+    }
+  
+    .animation-delay-800 {
+      animation-delay: 800ms;
+    }
+  
+    .animation-delay-2000 {
+      animation-delay: 2s;
+    }
+  
+    .animation-delay-4000 {
+      animation-delay: 4s;
+    }
+  }
+  
+  @keyframes blob-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+  
+  .animate-blob-spin {
+    animation: blob-spin 20s linear infinite;
+  }
+  
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }

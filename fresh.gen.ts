@@ -19,7 +19,7 @@ import * as $experiences_index from "./routes/experiences/index.tsx";
 import * as $hackathons_hackathon_ from "./routes/hackathons/[hackathon].tsx";
 import * as $hackathons_index from "./routes/hackathons/index.tsx";
 import * as $index from "./routes/index.tsx";
-import * as $login_index from "./routes/login/index.ts";
+import * as $login_index from "./routes/login/index.tsx";
 import * as $logout from "./routes/logout.ts";
 import * as $projects_project_ from "./routes/projects/[project].tsx";
 import * as $projects_index from "./routes/projects/index.tsx";
@@ -37,6 +37,8 @@ import * as $Navbar from "./islands/Navbar.tsx";
 import * as $ProjectsFilter from "./islands/ProjectsFilter.tsx";
 import * as $ResearchsAccordion from "./islands/ResearchsAccordion.tsx";
 import * as $ThemeToggle from "./islands/ThemeToggle.tsx";
+import * as $auth_LoginPage from "./islands/auth/LoginPage.tsx";
+import * as $auth_RegisterPage from "./islands/auth/RegisterPage.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -59,7 +61,7 @@ const manifest = {
     "./routes/hackathons/[hackathon].tsx": $hackathons_hackathon_,
     "./routes/hackathons/index.tsx": $hackathons_index,
     "./routes/index.tsx": $index,
-    "./routes/login/index.ts": $login_index,
+    "./routes/login/index.tsx": $login_index,
     "./routes/logout.ts": $logout,
     "./routes/projects/[project].tsx": $projects_project_,
     "./routes/projects/index.tsx": $projects_index,
@@ -79,6 +81,8 @@ const manifest = {
     "./islands/ProjectsFilter.tsx": $ProjectsFilter,
     "./islands/ResearchsAccordion.tsx": $ResearchsAccordion,
     "./islands/ThemeToggle.tsx": $ThemeToggle,
+    "./islands/auth/LoginPage.tsx": $auth_LoginPage,
+    "./islands/auth/RegisterPage.tsx": $auth_RegisterPage,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

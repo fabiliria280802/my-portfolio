@@ -2,7 +2,7 @@ import i18next from '../i18n.ts';
 import Navbar from '../islands/Navbar.tsx';
 import type { Handlers, PageProps } from "$fresh/server.ts";
 import { getCookies } from "$std/http/cookie.ts";
-import Login from "../components/Login.tsx";
+import Login from "../islands/auth/LoginPage.tsx";
 import Footer from "../islands/Footer.tsx";
 
 interface Data {

@@ -1,0 +1,13 @@
+{
+    "imports": {
+        "@components/": "./components/",
+        "@data/":"./data/",
+        "@hooks/":"./hooks/",
+        "@inslands/":"./islands/",
+        "@interfaces/":"./interfaces/",
+        "@locales/": "./locales/",
+        "@static/": "./static/",
+        "@routes/": "./routes/"
+    }
+  }
+  
