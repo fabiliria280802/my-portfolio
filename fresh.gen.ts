@@ -5,6 +5,7 @@
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $_layout from "./routes/_layout.tsx";
+import * as $about from "./routes/about.tsx";
 import * as $api_certifications from "./routes/api/certifications.ts";
 import * as $api_contact from "./routes/api/contact.ts";
 import * as $api_experiences from "./routes/api/experiences.ts";
@@ -34,7 +35,7 @@ import * as $HackathonsTimeline from "./islands/HackathonsTimeline.tsx";
 import * as $HomeInteractive from "./islands/HomeInteractive.tsx";
 import * as $InteractivePaper from "./islands/InteractivePaper.tsx";
 import * as $Navbar from "./islands/Navbar.tsx";
-import * as $ProjectsFilter from "./islands/ProjectsFilter.tsx";
+import * as $ProjectsList from "./islands/ProjectsList.tsx";
 import * as $ResearchsAccordion from "./islands/ResearchsAccordion.tsx";
 import * as $ThemeToggle from "./islands/ThemeToggle.tsx";
 import * as $auth_LoginPage from "./islands/auth/LoginPage.tsx";
@@ -46,6 +47,7 @@ const manifest = {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
     "./routes/_layout.tsx": $_layout,
+    "./routes/about.tsx": $about,
     "./routes/api/certifications.ts": $api_certifications,
     "./routes/api/contact.ts": $api_contact,
     "./routes/api/experiences.ts": $api_experiences,
@@ -78,7 +80,7 @@ const manifest = {
     "./islands/HomeInteractive.tsx": $HomeInteractive,
     "./islands/InteractivePaper.tsx": $InteractivePaper,
     "./islands/Navbar.tsx": $Navbar,
-    "./islands/ProjectsFilter.tsx": $ProjectsFilter,
+    "./islands/ProjectsList.tsx": $ProjectsList,
     "./islands/ResearchsAccordion.tsx": $ResearchsAccordion,
     "./islands/ThemeToggle.tsx": $ThemeToggle,
     "./islands/auth/LoginPage.tsx": $auth_LoginPage,

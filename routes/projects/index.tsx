@@ -1,34 +1,33 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-import ProjectCard from "../../components/ProjectCard.tsx";
-import Repository from "../../interfaces/Project.ts"
+import ProjectsList from "../../islands/ProjectsList.tsx";
+import type {  Repository } from "../../interfaces/Project.ts";
 import 'dotenv/config';
 
 export const handler: Handlers = {
   async GET(_req, ctx) {
-    const username = Deno.env.get("GITHUB_USERNAME"); 
+    const username = Deno.env.get("GITHUB_USERNAME");
     if (!username) {
       return new Response("GITHUB_USERNAME no está definido", { status: 500 });
     }
     const response = await fetch(`https://api.github.com/users/${username}/repos`);
-
     if (!response.ok) {
       return new Response("Error al obtener los repositorios", { status: 500 });
     }
-
     const repos: Repository[] = await response.json();
-
     return ctx.render({ repos });
   },
 };
 
 export default function ProjectsPage({ data }: PageProps<{ repos: Repository[] }>) {
   return (
-    <div class="container mx-auto px-4">
-      <h1 class="text-3xl font-bold mb-6">Mis Proyectos</h1>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {data.repos.map((repo) => (
-          <ProjectCard key={repo.name} repo={repo} />
-        ))}
+    <div class="min-h-screen bg-background-light dark:bg-background-dark">
+      <div class="container mx-auto px-4 py-8">
+        <div class="max-w-7xl mx-auto">
+          <h1 class="text-4xl font-bold mb-8 text-primary-light dark:text-primary-dark text-center">
+            Mis Proyectos
+          </h1>
+          <ProjectsList repos={data.repos} />
+        </div>
       </div>
     </div>
   );
