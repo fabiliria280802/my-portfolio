@@ -1,19 +1,25 @@
 import { useEffect, useState } from "preact/hooks";
 
 const LoginPage = () => {
-  useEffect(() => {    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
+
+  const [userData, setUserData] = useState({ 
+    username: "", 
+    email: "",
+    password: ""
+});
+
+    const submitHandler = async () => {
+        try{
+            const response = await axiod.post("/api/auth/login", userData);
+            if(response.status === 200){
+                console.log("User login successfully");
+                localStorage.setItem("auth", response.data.token);
+                globalThis.location.href = "/";
+            }
+        }catch(err){
+            console.error(err);
         }
-      });
-    });
-
-    document.querySelectorAll(".animate-on-scroll").forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
+    };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background-light dark:bg-background-dark theme-transition overflow-hidden">
