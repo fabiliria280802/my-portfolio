@@ -5,17 +5,17 @@
 
 @layer base {
     :root {
-      --color-primary-light: 59 130 246;    /* Blue-500 */
-      --color-secondary-light: 147 197 253;  /* Blue-300 */
-      --color-accent-light: 37 99 235;      /* Blue-600 */
-      --color-background-light: 255 255 255; /* White */
-      --color-text-light: 31 41 55;         /* Gray-800 */
+      --color-primary-light: 59 130 246;   
+      --color-secondary-light: 59 130 246; 
+      --color-accent-light: 37 99 235;     
+      --color-background-light: 255 255 255;
+      --color-text-light: 31 41 55;        
   
-      --color-primary-dark: 96 165 250;     /* Blue-400 */
-      --color-secondary-dark: 59 130 246;   /* Blue-500 */
-      --color-accent-dark: 147 197 253;     /* Blue-300 */
-      --color-background-dark: 17 24 39;    /* Gray-900 */
-      --color-text-dark: 243 244 246;       /* Gray-100 */
+      --color-primary-dark: 96 165 250;    
+      --color-secondary-dark: 59 130 246;   
+      --color-accent-dark: 147 197 253;    
+      --color-background-dark: 17 24 39;   
+      --color-text-dark: 243 244 246;      
     }
   }
   

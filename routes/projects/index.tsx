@@ -2,6 +2,7 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 import ProjectsList from "../../islands/ProjectsList.tsx";
 import type {  Repository } from "../../interfaces/Project.ts";
 import 'dotenv/config';
+import Navbar from "../../islands/Navbar.tsx";
 
 export const handler: Handlers = {
   async GET(_req, ctx) {
@@ -20,6 +21,9 @@ export const handler: Handlers = {
 
 export default function ProjectsPage({ data }: PageProps<{ repos: Repository[] }>) {
   return (
+    <>
+    <Navbar/>
+    
     <div class="min-h-screen bg-background-light dark:bg-background-dark">
       <div class="container mx-auto px-4 py-8">
         <div class="max-w-7xl mx-auto">
@@ -30,5 +34,7 @@ export default function ProjectsPage({ data }: PageProps<{ repos: Repository[] }
         </div>
       </div>
     </div>
+    </>
+
   );
 }

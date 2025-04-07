@@ -1,4 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
+import axiod from "https://deno.land/x/axiod/mod.ts";
 
 const LoginPage = () => {
 
@@ -21,6 +22,20 @@ const LoginPage = () => {
         }
     };
 
+    useEffect(() => {    
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      });
+  
+      document.querySelectorAll(".animate-on-scroll").forEach((el) => observer.observe(el));
+  
+      return () => observer.disconnect();
+    }, []);
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-background-light dark:bg-background-dark theme-transition overflow-hidden">
       <div className="relative w-full max-w-md p-8">
@@ -30,14 +45,14 @@ const LoginPage = () => {
           <div className="absolute -top-8 -right-4 w-72 h-72 bg-accent-light dark:bg-accent-dark rounded-full animate-blob-spin animation-delay-4000" />
         </div>
 
-        <form method="post" action="/api/login" className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 animate-on-scroll opacity-0 translate-y-8">
+        <form className="">
           <div className="mb-8 text-center">
             <h1 className="text-4xl font-bold text-primary-light dark:text-primary-dark mb-2 font-display">Welcome Back</h1>
             <p className="text-gray-600 dark:text-gray-400">Please sign in to continue</p>
           </div>
 
           <div className="space-y-6">
-            <div className="animate-on-scroll opacity-0 translate-y-4">
+            <div className="animate-on-scroll opacity-0 translate-y-4 animation-delay-200">
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" htmlFor="username">
                 Username
               </label>
@@ -82,7 +97,7 @@ const LoginPage = () => {
 
             <p className="text-center text-sm text-gray-600 dark:text-gray-400 animate-on-scroll opacity-0 translate-y-4 animation-delay-800">
               Don't have an account?{" "}
-              <a href="#" className="text-primary-light dark:text-primary-dark hover:underline">
+              <a onClick={submitHandler} className="text-primary-light dark:text-primary-dark hover:underline">
                 Sign up
               </a>
             </p>

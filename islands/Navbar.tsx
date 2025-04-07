@@ -55,7 +55,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav class={`fixed w-full top-0 z-50 transition-theme ${isDarkMode ? 'bg-background-dark text-text-dark' : 'bg-background text-text'}`}>
+    <nav class={`fixed w-full top-0 z-50 transition-theme ${isDarkMode ? 'bg-background-dark text-text-dark' : 'bg-background-light text-text-light'}`}>
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
           <div class="flex items-center">

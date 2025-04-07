@@ -5,7 +5,7 @@
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $_layout from "./routes/_layout.tsx";
-import * as $about from "./routes/about.tsx";
+import * as $about_index from "./routes/about/index.tsx";
 import * as $api_certifications from "./routes/api/certifications.ts";
 import * as $api_contact from "./routes/api/contact.ts";
 import * as $api_experiences from "./routes/api/experiences.ts";
@@ -24,6 +24,7 @@ import * as $login_index from "./routes/login/index.tsx";
 import * as $logout from "./routes/logout.ts";
 import * as $projects_project_ from "./routes/projects/[project].tsx";
 import * as $projects_index from "./routes/projects/index.tsx";
+import * as $register_index from "./routes/register/index.tsx";
 import * as $researchs_research_ from "./routes/researchs/[research].tsx";
 import * as $researchs_index from "./routes/researchs/index.tsx";
 import * as $CertificationsCarousel from "./islands/CertificationsCarousel.tsx";
@@ -37,6 +38,7 @@ import * as $InteractivePaper from "./islands/InteractivePaper.tsx";
 import * as $Navbar from "./islands/Navbar.tsx";
 import * as $ProjectsList from "./islands/ProjectsList.tsx";
 import * as $ResearchsAccordion from "./islands/ResearchsAccordion.tsx";
+import * as $ScrollAnimation from "./islands/ScrollAnimation.tsx";
 import * as $ThemeToggle from "./islands/ThemeToggle.tsx";
 import * as $auth_LoginPage from "./islands/auth/LoginPage.tsx";
 import * as $auth_RegisterPage from "./islands/auth/RegisterPage.tsx";
@@ -47,7 +49,7 @@ const manifest = {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
     "./routes/_layout.tsx": $_layout,
-    "./routes/about.tsx": $about,
+    "./routes/about/index.tsx": $about_index,
     "./routes/api/certifications.ts": $api_certifications,
     "./routes/api/contact.ts": $api_contact,
     "./routes/api/experiences.ts": $api_experiences,
@@ -67,6 +69,7 @@ const manifest = {
     "./routes/logout.ts": $logout,
     "./routes/projects/[project].tsx": $projects_project_,
     "./routes/projects/index.tsx": $projects_index,
+    "./routes/register/index.tsx": $register_index,
     "./routes/researchs/[research].tsx": $researchs_research_,
     "./routes/researchs/index.tsx": $researchs_index,
   },
@@ -82,6 +85,7 @@ const manifest = {
     "./islands/Navbar.tsx": $Navbar,
     "./islands/ProjectsList.tsx": $ProjectsList,
     "./islands/ResearchsAccordion.tsx": $ResearchsAccordion,
+    "./islands/ScrollAnimation.tsx": $ScrollAnimation,
     "./islands/ThemeToggle.tsx": $ThemeToggle,
     "./islands/auth/LoginPage.tsx": $auth_LoginPage,
     "./islands/auth/RegisterPage.tsx": $auth_RegisterPage,
