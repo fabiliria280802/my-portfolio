@@ -44,5 +44,10 @@
     "jsx": "react-jsx",
     "jsxImportSource": "preact"
   },
+    "deploy": {
+    "exclude": [".env"],
+    "include": ["./jsons", "*.ts", "deno.json"],
+    "entrypoint": "./main.ts"
+  },
   "nodeModulesDir": "auto"
 }
