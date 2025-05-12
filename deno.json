@@ -45,9 +45,10 @@
     "jsxImportSource": "preact"
   },
     "deploy": {
-    "exclude": [".env"],
-    "include": ["./jsons", "*.ts", "deno.json"],
-    "entrypoint": "./main.ts"
+      "exclude": [".env"],
+      "include": ["./jsons", "*.ts", "deno.json"],
+      "entrypoint": "./main.ts"
   },
+  "importMap": "import_map.json",
   "nodeModulesDir": "auto"
 }

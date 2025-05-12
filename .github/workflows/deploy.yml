@@ -32,4 +32,3 @@ jobs:
           project: my-portfolio-fabiliria
           entrypoint: main.ts
           root: "."
-          import-map: import_map.json
