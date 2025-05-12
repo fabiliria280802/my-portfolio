@@ -2,18 +2,20 @@
 This is my personal repo for my portfolio. This website is built in Deno + Fresh.js. The design concept was inspired by my little sis ideas & pinterest stuff.
 
 # Run project locally
-    Write 
-    ```bash 
+    Write
+
+    ```bash
     deno task start
-    ``` 
+    ```
     on the terminal
     App will be running in http://localhost:8080
 
 # How to add some dependencies
-    Write 
-    ```bash 
+    Write
+
+    ```bash
     deno install npm:preact
-    ``` 
+    ```
     on the terminal
 
 # Island architecture
@@ -42,9 +44,9 @@ For more info check out [this article](https://www.patterns.dev/vanilla/islands-
 - **Projects**: This is a list of all the projects I have done.
 - **About me**: This is a brief description of who I am and what I do.
 - **Contact**: This is a contact form where you can send me a message.
-- **Certifications**:
-- **Hacketons**:
-- **Experiences**:
-- **Researchs**:
+- **Certifications**: This is a list of certificates that I have.
+- **Hacketons**: This is a list of hacketons that I have participate in.
+- **Experiences**: This is a list of experiments that I have.
+- **Researchs**: This is a list of research projects that I have done.
 
 # where is deploy?
