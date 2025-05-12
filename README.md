@@ -11,12 +11,12 @@ This is my personal repo for my portfolio. This website is built in Deno + Fresh
     App will be running in http://localhost:8080
 
 # How to add some dependencies
-    Write
+  Write
 
     ```bash
     deno install npm:preact
     ```
-    on the terminal
+  on the terminal
 
 # Island architecture
 The islands architecture encourages small, focused chunks of interactivity within server-rendered web pages. The output of islands is progressively enhanced HTML, with more specificity around how the enhancement occurs. Rather than a single application being in control of full-page rendering, there are multiple entry points.
