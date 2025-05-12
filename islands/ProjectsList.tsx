@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "preact/hooks";
 import ProjectCard from "../components/ProjectCard.tsx";
 import { ProjectsListProps } from "../interfaces/Project.ts";

@@ -6,3 +6,11 @@ export interface Experience {
     programming_languages: string[];
     linkedin_url: string;
   }
+  
+  export interface ExperienceCardProps {
+    experience: Experience;
+  }
+
+  export interface ExperiencesListProps {
+    experiences: Experience[];
+  }

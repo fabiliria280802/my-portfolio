@@ -17,4 +17,4 @@ export interface Certificate {
   
   export interface CertificatesListProps {
     certs: Certificate[];
-}
+  }

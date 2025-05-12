@@ -5,3 +5,11 @@ export interface Hackathon {
     topics: string[];
     linkedin_url: string;
   }
+
+  export interface HackathonCardProps {
+    hackathon: Hackathon;
+  }
+
+  export interface HackathonsListProps {
+    hackathons: Hackathon[];
+  }

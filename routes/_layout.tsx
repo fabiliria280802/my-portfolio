@@ -3,18 +3,15 @@ import { useEffect } from "preact/hooks";
 
 export default function Layout({ Component }: PageProps) {
   useEffect(() => {
-    // Check for saved theme preference
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = globalThis.matchMedia('(prefers-color-scheme: dark)').matches;
     
-    // Apply theme based on saved preference or system preference
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
 
-    // Listen for system theme changes
     const mediaQuery = globalThis.matchMedia('(prefers-color-scheme: dark)');
     const handleChange = (e: MediaQueryListEvent) => {
       if (!localStorage.getItem('theme')) {

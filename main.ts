@@ -9,7 +9,7 @@ import "$std/dotenv/load.ts";
 import { start } from "$fresh/server.ts";
 import manifest from "./fresh.gen.ts";
 import config from "./fresh.config.ts";
-import {createMongoDBConnection} from "./utils/DBConnection.ts"
+import {createMongoDBConnection} from "./utils/DBConnection.utils.ts"
 
 await createMongoDBConnection();
 await start(manifest, config);

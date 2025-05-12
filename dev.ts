@@ -4,7 +4,7 @@ import dev from "$fresh/dev.ts";
 import config from "../my-portfolio/fresh.config.ts";
 
 import "$std/dotenv/load.ts";
-import {createMongoDBConnection} from "./utils/DBConnection.ts"
+import {createMongoDBConnection} from "./utils/DBConnection.utils.ts"
 
 await createMongoDBConnection();
 

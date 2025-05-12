@@ -1,10 +1,18 @@
 {
     "welcome_message": "¡Bienvenido a mi portafolio!",
     "about": "Sobre mi",
+    "about_text": "Soy un desarrollador web apasionado por la tecnología y el aprendizaje continuo. Me encanta crear aplicaciones web que resuelvan problemas reales y mejoren la vida de las personas.",
     "projects": "Proyectos",
     "contact": "Contacto",
     "researchs": "Investigaciones",
     "certifications": "Certificados",
     "experiences": "Experiencia",
-    "hackathons": "Hackathons"
+    "hackathons": "Hackathons",
+    "skills": "Habilidades",
+    "fav_frameworks": "Frameworks Favoritos",
+    "fav_programming_languages": "Lenguajes de program Favoritos",
+    "education": "Educación",
+    "languages": "Idiomas",
+    "interests": "Intereses",
+    "hobbies": "Pasatiempos"
   }

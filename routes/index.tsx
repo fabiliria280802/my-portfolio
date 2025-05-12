@@ -9,8 +9,6 @@ interface Data {
   isAllowed: boolean;
 }
 
-
-
 export const handler: Handlers = {
   GET(req, ctx) {
     const cookies = getCookies(req.headers);

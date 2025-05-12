@@ -1,5 +1,5 @@
 import {Database, MongoClient,} from "https://deno.land/x/mongo/mod.ts";
-import { MONGO_URI } from "./envConfig.ts";
+import { MONGO_URI } from "./envConfig.utils.ts";
 
 let db: Database;
 

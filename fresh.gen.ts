@@ -15,6 +15,7 @@ import * as $api_login from "./routes/api/login.ts";
 import * as $api_researchs from "./routes/api/researchs.ts";
 import * as $certifications_certification_ from "./routes/certifications/[certification].tsx";
 import * as $certifications_index from "./routes/certifications/index.tsx";
+import * as $contact_index from "./routes/contact/index.tsx";
 import * as $experiences_experience_ from "./routes/experiences/[experience].tsx";
 import * as $experiences_index from "./routes/experiences/index.tsx";
 import * as $hackathons_hackathon_ from "./routes/hackathons/[hackathon].tsx";
@@ -60,6 +61,7 @@ const manifest = {
     "./routes/certifications/[certification].tsx":
       $certifications_certification_,
     "./routes/certifications/index.tsx": $certifications_index,
+    "./routes/contact/index.tsx": $contact_index,
     "./routes/experiences/[experience].tsx": $experiences_experience_,
     "./routes/experiences/index.tsx": $experiences_index,
     "./routes/hackathons/[hackathon].tsx": $hackathons_hackathon_,
