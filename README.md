@@ -49,5 +49,5 @@ For more info check out [this article](https://www.patterns.dev/vanilla/islands-
 - **Experiences**: This is a list of experiments that I have.
 - **Researchs**: This is a list of research projects that I have done.
 
-# where is deploy?
-this proyect is deploy on [my-porfolio-fabiliria](https://my-portfolio-fabiliria.deno.dev) using [Deno Deploy](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjog5nR_J6NAxVLpLAFHUjbNmQQFnoECCMQAQ&url=https%3A%2F%2Fdeno.com%2Fdeploy&usg=AOvVaw1SMflCLyigB3JYgpQbhVeB&opi=89978449)
+# Where is deploy?
+this proyect is deploy on [my-porfolio-fabiliria](https://my-portfolio-fabiliria.deno.dev) using [Deno Deploy](https://deno.com/deploy)
