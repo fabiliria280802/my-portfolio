@@ -1,29 +1,33 @@
-import i18next from '../i18n.ts';
-import Navbar from '../islands/Navbar.tsx';
-import type { Handlers, PageProps } from "$fresh/server.ts";
-import { getCookies } from "$std/http/cookie.ts";
-import Login from "../islands/auth/LoginPage.tsx";
-import Footer from "../islands/Footer.tsx";
+import { useSignal } from "@preact/signals";
+import { Head } from "fresh/runtime";
+import { define } from "../utils.ts";
+import Counter from "../islands/Counter.tsx";
 
-interface Data {
-  isAllowed: boolean;
-}
+export default define.page(function Home(ctx) {
+  const count = useSignal(3);
 
-export const handler: Handlers = {
-  GET(req, ctx) {
-    const cookies = getCookies(req.headers);
-    return ctx.render!({ isAllowed: cookies.auth === "bar" });
-  },
-};
+  console.log("Shared value " + ctx.state.shared);
 
-export default function Home({ data }: PageProps<Data>) {
   return (
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
-      <main className="flex-grow">
-        {data}
-      </main>
-      <Footer />
+    <div class="px-4 py-8 mx-auto fresh-gradient min-h-screen">
+      <Head>
+        <title>Fresh counter</title>
+      </Head>
+      <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
+        <img
+          class="my-6"
+          src="/logo.svg"
+          width="128"
+          height="128"
+          alt="the Fresh logo: a sliced lemon dripping with juice"
+        />
+        <h1 class="text-4xl font-bold">Welcome to Fresh</h1>
+        <p class="my-4">
+          Try updating this message in the
+          <code class="mx-2">./routes/index.tsx</code> file, and refresh.
+        </p>
+        <Counter count={count} />
+      </div>
     </div>
   );
-}
+});
