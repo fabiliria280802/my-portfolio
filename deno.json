@@ -36,6 +36,8 @@
     ],
     "jsx": "precompile",
     "jsxImportSource": "preact",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
     "jsxPrecompileSkipElements": [
       "a",
       "img",

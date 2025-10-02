@@ -1,0 +1,1 @@
+export const kv = ("Deno" in globalThis && (Deno as any).openKv) ? await (Deno as any).openKv() : undefined;
