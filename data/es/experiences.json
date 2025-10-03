@@ -1,0 +1,30 @@
+[
+  {
+    "id": "exp-001",
+    "role": "Ingeniera Frontend Senior",
+    "company": "Nebula Labs",
+    "period": "2023-08 — Presente",
+    "description": "Lideré el equipo de frontend construyendo una interfaz impulsada por un sistema de diseño utilizando Preact, TypeScript y Tailwind. Mejoré el rendimiento en un 40% mediante división de código, arquitectura de islas y componentes accesibles. Mentoricé a ingenieros junior e introduje pruebas automatizadas de regresión visual."
+  },
+  {
+    "id": "exp-002",
+    "role": "Desarrolladora Full-Stack",
+    "company": "Atlas Finance",
+    "period": "2021-05 — 2023-07",
+    "description": "Construí paneles y herramientas internas renderizadas en servidor con Deno, Fresh y SQLite. Implementé endpoints de API seguros, pipelines de CI y feature flags. Entregué funciones de analítica que incrementaron la retención de usuarios."
+  },
+  {
+    "id": "exp-003",
+    "role": "Colaboradora de Código Abierto",
+    "company": "Varios",
+    "period": "2019 — Presente",
+    "description": "Contribuí con componentes, documentación y correcciones de errores a múltiples librerías de frontend. Áreas de enfoque: accesibilidad, optimización de bundlers y utilidades de pruebas. Mantenedora de una pequeña librería de utilidades utilizada por varios proyectos."
+  },
+  {
+    "id": "exp-004",
+    "role": "Desarrolladora Web Freelance",
+    "company": "Independiente",
+    "period": "2017 — 2021",
+    "description": "Entregué sitios web responsivos y PWAs para startups y agencias. Responsabilidades incluyeron colaboración en UX, desarrollo frontend, optimizaciones de rendimiento y automatización de despliegues."
+  }
+]

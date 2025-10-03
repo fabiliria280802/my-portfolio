@@ -1,0 +1,19 @@
+{
+  "certificates": "Certificados",
+  "experiences": "Experiencias",
+  "hackathons": "Hackatones",
+  "projects": "Proyectos",
+  "researchs": "Investigación",
+  "about": "Sobre mí",
+  "contact": "Contacto",
+  "loading": "Cargando…",
+  "see_certificate": "Ver certificado",
+  "read_more": "Leer más",
+  "send_message": "Enviar mensaje",
+  "name": "Nombre",
+  "email": "Correo electrónico",
+  "message": "Mensaje",
+  "submit": "Enviar",
+  "success": "¡Tu mensaje fue enviado con éxito!",
+  "error": "Hubo un error. Por favor, inténtalo de nuevo."
+}

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 
+
 const KEYS = ["certificates","experiences","hackathons","projects","researchs","about","contact"] as const;
 
 export default function TabsClient() {
@@ -21,7 +22,7 @@ export default function TabsClient() {
             <div role="tablist" class="tablist" onKeyDown={(e) => onKeyDown(e as any)}>
                 {KEYS.map((k) => (
                     <button
-                        ref={(el) => (tabRefs.current[k] = el)}
+                        ref={(el) => { tabRefs.current[k] = el; }}
                         role="tab"
                         aria-selected={active === k}
                         aria-controls={`panel-${k}`}

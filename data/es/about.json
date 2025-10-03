@@ -1,0 +1,17 @@
+{
+  "_initial": "Bienvenido a mi terminal interactiva. Escribe 'help' para ver los comandos disponibles.",
+  "_error": "Comando no encontrado: {command}. Escribe 'help' para ver la lista de comandos.",
+  "whoami": "Soy un Desarrollador Full-Stack apasionado por crear experiencias web accesibles, de alto rendimiento y agradables. Disfruto resolviendo problemas complejos y aprendiendo continuamente nuevas tecnologías.",
+  "skills": [
+    "Lenguajes: TypeScript, JavaScript, Python, SQL",
+    "Frameworks: Fresh, Preact, React, Node.js",
+    "Herramientas: Deno, Vite, Git, Docker, TailwindCSS",
+    "Conceptos: SSR, Arquitectura de Islas, a11y, CI/CD"
+  ],
+  "contact": [
+    "Puedes contactarme desde la pestaña 'Contacto',",
+    "o encontrarme en:",
+    "GitHub:    https://github.com/your-username",
+    "LinkedIn:  https://linkedin.com/in/your-profile"
+  ]
+}

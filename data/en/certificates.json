@@ -1,0 +1,34 @@
+[
+  {
+    "id": "cert-001",
+    "name": "Frontend Web Development",
+    "issuer": "FreeCodeCamp",
+    "date": "2023-06-15",
+    "url": "https://www.freecodecamp.org/certification/fcc-frontend",
+    "description": "Comprehensive course covering HTML, CSS, JavaScript and responsive design."
+  },
+  {
+    "id": "cert-002",
+    "name": "Responsive Web Design",
+    "issuer": "Coursera - University of London",
+    "date": "2022-11-02",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/RESPONSIVE123",
+    "description": "Focused on accessibility, mobile-first design, and modern CSS techniques."
+  },
+  {
+    "id": "cert-003",
+    "name": "TypeScript Deep Dive",
+    "issuer": "Pluralsight",
+    "date": "2024-03-10",
+    "url": "https://app.pluralsight.com/certificates/typescript-deep-dive",
+    "description": "Advanced TypeScript concepts, strict types, generics, and project patterns."
+  },
+  {
+    "id": "cert-004",
+    "name": "Deno and Fresh: Full‑Stack App",
+    "issuer": "Self‑study / Project",
+    "date": "2025-08-01",
+    "url": "",
+    "description": "Hands-on project building a multilingual portfolio with Deno, Fresh 2, and Islands architecture."
+  }
+]

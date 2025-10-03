@@ -5,7 +5,10 @@ export default function ProjectsList({ locale }: { locale: string }) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`/api/github-projects`).then(r => r.json()).then(setRepos).finally(() => setLoading(false));
+        fetch(`/api/github-projects`)
+            .then(r => r.json())
+            .then(setRepos)
+            .finally(() => setLoading(false));
     }, []);
 
     if (loading) return <p>Loading…</p>;

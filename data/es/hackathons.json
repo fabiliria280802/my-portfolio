@@ -1,0 +1,33 @@
+[
+  {
+    "id": "hack-001",
+    "name": "Climate API Challenge",
+    "year": "2024",
+    "award": "1er Premio — Mejor API",
+    "description": "Construí un pipeline en tiempo real para ingestión de datos climáticos y un mapa interactivo. Enfoque en rendimiento, accesibilidad y mejora progresiva.",
+    "image": "/images/hackathons/climate-api.png"
+  },
+  {
+    "id": "hack-002",
+    "name": "FinHealth Hack",
+    "year": "2023",
+    "award": "Subcampeón — UX",
+    "description": "Prototipé una aplicación de presupuesto con privacidad primero, soporte sin conexión e insights visuales de gastos usando Preact + almacenamiento local-first.",
+    "image": "/images/hackathons/finhealth.jpg"
+  },
+  {
+    "id": "hack-003",
+    "name": "Open Data Sprint",
+    "year": "2022",
+    "description": "Creé un explorador de datasets con filtrado, exportación a CSV y visualizaciones. Énfasis en pipelines de datos limpios y componentes reutilizables.",
+    "image": "/images/hackathons/open-data.png"
+  },
+  {
+    "id": "hack-004",
+    "name": "Accessibility Jam",
+    "year": "2021",
+    "award": "Premio a la Accesibilidad",
+    "description": "Entregué una librería de componentes accesibles con validaciones automáticas de a11y y ejemplos de documentación completos.",
+    "image": "/images/hackathons/accessibility.png"
+  }
+]

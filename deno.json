@@ -4,7 +4,8 @@
     "check": "deno fmt --check . && deno lint . && deno check",
     "dev": "vite",
     "build": "vite build",
-    "start": "deno serve -A _fresh/server.js",
+    "start:dev": "deno run -A dev.ts", 
+    "start:prod": "deno serve -A _fresh/server.js",
     "update": "deno run -A -r jsr:@fresh/update ."
   },
   "lint": {
@@ -36,8 +37,6 @@
     ],
     "jsx": "precompile",
     "jsxImportSource": "preact",
-    "allowImportingTsExtensions": true,
-    "noEmit": true,
     "jsxPrecompileSkipElements": [
       "a",
       "img",

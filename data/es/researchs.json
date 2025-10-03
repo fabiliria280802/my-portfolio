@@ -1,0 +1,32 @@
+[
+  {
+    "id": "res-001",
+    "title": "Hidratación Progresiva para Arquitectura de Islas",
+    "summary": "Un estudio sobre la hidratación progresiva de islas interactivas para minimizar el tiempo de ejecución de JS, explorando estrategias de priorización y mejoras de rendimiento medibles en dispositivos de gama baja.",
+    "url": "https://example.com/research/progressive-hydration"
+  },
+  {
+    "id": "res-002",
+    "title": "Visualizaciones de Datos Accesibles",
+    "summary": "Patrones de diseño y técnicas ARIA para hacer que gráficos y diagramas interactivos sean totalmente accesibles sin sacrificar interactividad ni rendimiento.",
+    "url": "https://example.com/research/accessible-viz"
+  },
+  {
+    "id": "res-003",
+    "title": "Optimización del Caché SSR con Funciones Edge",
+    "summary": "Benchmarks y estrategias para combinar renderizado del lado del servidor y caché en el edge con el fin de reducir el TTFB y mejorar la latencia global para usuarios en múltiples regiones.",
+    "url": "https://example.com/research/ssr-edge-caching"
+  },
+  {
+    "id": "res-004",
+    "title": "Arquitecturas Local-First para PWAs Offline-First",
+    "summary": "Exploración de modelos de sincronización de datos local-first, resolución de conflictos y consideraciones de UX para aplicaciones web progresivas resilientes.",
+    "url": "https://example.com/research/local-first-pwa"
+  },
+  {
+    "id": "res-005",
+    "title": "Composición de Micro-frontends con Sobrecarga Mínima",
+    "summary": "Patrones para componer micro-frontends que compartan dependencias en tiempo de ejecución, eviten duplicación de JS/CSS y preserven accesibilidad y SEO.",
+    "url": ""
+  }
+]

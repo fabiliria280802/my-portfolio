@@ -1,0 +1,30 @@
+[
+  {
+    "id": "exp-001",
+    "role": "Senior Frontend Engineer",
+    "company": "Nebula Labs",
+    "period": "2023-08 — Present",
+    "description": "Led the frontend team building a design-system-driven UI using Preact, TypeScript and Tailwind. Improved performance by 40% through code-splitting, islandification and accessible components. Mentored junior engineers and introduced automated visual regression tests."
+  },
+  {
+    "id": "exp-002",
+    "role": "Full‑Stack Developer",
+    "company": "Atlas Finance",
+    "period": "2021-05 — 2023-07",
+    "description": "Built server-side rendered dashboards and internal tools with Deno, Fresh and SQLite. Implemented secure API endpoints, CI pipelines and feature flags. Delivered analytics features that increased user retention."
+  },
+  {
+    "id": "exp-003",
+    "role": "Open Source Contributor",
+    "company": "Various",
+    "period": "2019 — Present",
+    "description": "Contributed components, docs and bug fixes to multiple frontend libraries. Focus areas: accessibility, bundler optimizations and testing utilities. Maintainer of a small utility library used by several projects."
+  },
+  {
+    "id": "exp-004",
+    "role": "Freelance Web Developer",
+    "company": "Self‑employed",
+    "period": "2017 — 2021",
+    "description": "Delivered responsive websites and PWAs for startups and agencies. Responsibilities included UX collaboration, frontend engineering, performance optimizations and deployment automation."
+  }
+]

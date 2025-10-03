@@ -1,0 +1,19 @@
+{
+  "certificates": "Certificates",
+  "experiences": "Experiences",
+  "hackathons": "Hackathons",
+  "projects": "Projects",
+  "researchs": "Research",
+  "about": "About Me",
+  "contact": "Contact",
+  "loading": "Loading…",
+  "see_certificate": "See certificate",
+  "read_more": "Read more",
+  "send_message": "Send message",
+  "name": "Name",
+  "email": "Email",
+  "message": "Message",
+  "submit": "Submit",
+  "success": "Your message was sent successfully!",
+  "error": "There was an error. Please try again."
+}
