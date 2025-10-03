@@ -12,11 +12,11 @@ interface Certificate {
 export default function CertificatesFlipGrid({ locale }: { locale: string }) {
   const [certs, setCerts] = useState<Certificate[]>([]);
 
-useEffect(() => {
-  fetch(`../data/${locale}/certificates.json`)
-    .then((r) => r.json())
-    .then(setCerts);
-}, [locale]);
+  useEffect(() => {
+    fetch(`../data/${locale}/certificates.json`)
+      .then((r) => r.json())
+      .then(setCerts);
+  }, [locale]);
 
   return (
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
@@ -33,7 +33,12 @@ useEffect(() => {
             <div class="absolute inset-0 bg-blue-50 rounded-xl shadow-lg flex flex-col justify-center items-center rotate-y-180 backface-hidden p-4">
               <p class="text-gray-700 text-center mb-2">{cert.description}</p>
               {cert.url && (
-                <a href={cert.url} target="_blank" rel="noopener" class="text-blue-600 underline font-semibold">
+                <a
+                  href={cert.url}
+                  target="_blank"
+                  rel="noopener"
+                  class="text-blue-600 underline font-semibold"
+                >
                   Ver certificado
                 </a>
               )}

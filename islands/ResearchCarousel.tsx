@@ -1,6 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
 
-
 interface Research {
   id: string;
   title: string;
@@ -19,7 +18,7 @@ export default function ResearchCarousel({ locale }: Props) {
   useEffect(() => {
     fetch(`../data/${locale}/researchs.json`)
       .then((r) => r.json())
-      .then(setItems)
+      .then(setItems);
   }, [locale]);
 
   if (items.length === 0) return <div>Loading...</div>;
@@ -32,7 +31,12 @@ export default function ResearchCarousel({ locale }: Props) {
         <h3 class="text-xl font-semibold">{current.title}</h3>
         <p>{current.summary}</p>
         {current.url && (
-          <a href={current.url} target="_blank" rel="noopener" class="text-blue-500 underline">
+          <a
+            href={current.url}
+            target="_blank"
+            rel="noopener"
+            class="text-blue-500 underline"
+          >
             Read more
           </a>
         )}
@@ -42,7 +46,9 @@ export default function ResearchCarousel({ locale }: Props) {
           <button
             key={idx}
             type="button"
-            class={`w-3 h-3 rounded-full ${active === idx ? "bg-blue-500" : "bg-gray-300"}`}
+            class={`w-3 h-3 rounded-full ${
+              active === idx ? "bg-blue-500" : "bg-gray-300"
+            }`}
             onClick={() => setActive(idx)}
             aria-label={`Show research ${idx + 1}`}
           />

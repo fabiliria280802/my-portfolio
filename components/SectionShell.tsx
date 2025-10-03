@@ -6,7 +6,9 @@ interface SectionShellProps {
   children: ComponentChildren;
 }
 
-export default function SectionShell({ title, description, children }: SectionShellProps) {
+export default function SectionShell(
+  { title, description, children }: SectionShellProps,
+) {
   return (
     <section class="section-shell py-6 px-4">
       <header class="mb-4">

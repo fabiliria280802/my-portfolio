@@ -1,6 +1,8 @@
 # Full‑Stack Portfolio – Fresh 2.0 (Deno + Islands + i18n)
 
-A multilingual portfolio website for a Full‑Stack Developer built with **Fresh 2.0** on **Deno**, using **Islands architecture**. It presents content in **tabbed sections**:
+A multilingual portfolio website for a Full‑Stack Developer built with **Fresh
+2.0** on **Deno**, using **Islands architecture**. It presents content in
+**tabbed sections**:
 
 - **Certificates**
 - **Experiences**
@@ -10,29 +12,35 @@ A multilingual portfolio website for a Full‑Stack Developer built with **Fresh
 - **About me**
 - **Contact me** (email form)
 
-This README explains setup, structure, i18n, data loading, GitHub integration, the contact form, deployment, and CI/CD.
+This README explains setup, structure, i18n, data loading, GitHub integration,
+the contact form, deployment, and CI/CD.
 
 ---
 
 ## 1) Tech Stack
+
 - **Framework:** [Fresh 2.x] (Preact + Deno HTTP server)
 - **Language:** TypeScript
 - **Rendering:** SSR + Islands (interactive components on top)
-- **Styling:** your choice (Twind/UnoCSS/Tailwind via PostCSS). Examples below stay CSS‑agnostic.
-- **State & Data:**  Deno KV
+- **Styling:** your choice (Twind/UnoCSS/Tailwind via PostCSS). Examples below
+  stay CSS‑agnostic.
+- **State & Data:** Deno KV
 - **Email:** Resend / AWS SES / SMTP (choose one)
 - **i18n:** URL‑based locales + JSON dictionaries
 
 ---
 
 ## 2) Prerequisites
+
 - **Deno** ≥ 1.44 installed (`deno --version`)
-- A **GitHub** account & (optional) **token** if you want to fetch private/starred repos reliably.
+- A **GitHub** account & (optional) **token** if you want to fetch
+  private/starred repos reliably.
 - An email provider key (e.g. **RESEND_API_KEY**) or SMTP credentials.
 
 ---
 
 ## 3) Quick Start
+
 ```bash
 # Create a Fresh app (no git, no VSCode settings)
 deno run -A -r https://fresh.deno.dev my-portfolio
@@ -50,6 +58,7 @@ deno task dev
 ---
 
 ## 4) Project Structure (suggested)
+
 ```
 my-portfolio/
   │  deno.json
@@ -95,18 +104,25 @@ my-portfolio/
   └─ static/                     # assets (favicons, images, cv.pdf, etc.)
 ```
 
-> **Note:** You can keep each tab as a single **page section** on `/` (recommended for speed), or expose sub‑routes for deep‑links (e.g. `/en/experiences`). This README shows both options.
+> **Note:** You can keep each tab as a single **page section** on `/`
+> (recommended for speed), or expose sub‑routes for deep‑links (e.g.
+> `/en/experiences`). This README shows both options.
 
 ---
 
 ## 5) Internationalization (i18n)
 
 ### 5.1 Locale strategy
-- **URL prefix:** `/{locale}/...` (e.g., `/en`, `/es`). Default fallback locale set in middleware.
-- **Dictionaries:** JSON files in `data/i18n` for UI strings. Content tabs also live per‑locale in `data/{locale}/...`.
+
+- **URL prefix:** `/{locale}/...` (e.g., `/en`, `/es`). Default fallback locale
+  set in middleware.
+- **Dictionaries:** JSON files in `data/i18n` for UI strings. Content tabs also
+  live per‑locale in `data/{locale}/...`.
 
 ### 5.2 Middleware for locale
+
 **`routes/_middleware.ts`** (simplified):
+
 ```ts
 import { MiddlewareHandlerContext } from "$fresh/server.ts";
 
@@ -131,23 +147,34 @@ export async function handler(req: Request, ctx: MiddlewareHandlerContext) {
 ```
 
 ### 5.3 i18n helper
+
 **`utils/i18n.ts`**
+
 ```ts
 export type UIStrings = Record<string, string>;
 
 export async function loadUIStrings(locale: string): Promise<UIStrings> {
-  const mod = await import(`../data/i18n/${locale}.json`, { assert: { type: "json" } });
+  const mod = await import(`../data/i18n/${locale}.json`, {
+    assert: { type: "json" },
+  });
   return mod.default as UIStrings;
 }
 
-export async function loadContent<T = unknown>(locale: string, file: string): Promise<T> {
-  const mod = await import(`../data/${locale}/${file}.json`, { assert: { type: "json" } });
+export async function loadContent<T = unknown>(
+  locale: string,
+  file: string,
+): Promise<T> {
+  const mod = await import(`../data/${locale}/${file}.json`, {
+    assert: { type: "json" },
+  });
   return mod.default as T;
 }
 ```
 
 ### 5.4 Language switcher island
+
 **`islands/LanguageSwitcher.tsx`**
+
 ```tsx
 import { useEffect, useState } from "preact/hooks";
 
@@ -165,7 +192,11 @@ export default function LanguageSwitcher() {
   }
 
   return (
-    <select value={loc} onChange={(e) => changeLocale((e.target as HTMLSelectElement).value)} aria-label="Language">
+    <select
+      value={loc}
+      onChange={(e) => changeLocale((e.target as HTMLSelectElement).value)}
+      aria-label="Language"
+    >
       <option value="en">English</option>
       <option value="es">Español</option>
     </select>
@@ -178,9 +209,18 @@ export default function LanguageSwitcher() {
 ## 6) Tabs UI (Islands)
 
 ### 6.1 Markup + island hydration
+
 **`components/Tabs.tsx`** (SSR)
+
 ```tsx
-export type TabKey = "certificates" | "experiences" | "hackathons" | "projects" | "researchs" | "about" | "contact";
+export type TabKey =
+  | "certificates"
+  | "experiences"
+  | "hackathons"
+  | "projects"
+  | "researchs"
+  | "about"
+  | "contact";
 
 export default function Tabs({ labels }: { labels: Record<TabKey, string> }) {
   return (
@@ -194,10 +234,19 @@ export default function Tabs({ labels }: { labels: Record<TabKey, string> }) {
 ```
 
 **`islands/TabsClient.tsx`** (client)
+
 ```tsx
 import { useEffect, useRef, useState } from "preact/hooks";
 
-const KEYS = ["certificates","experiences","hackathons","projects","researchs","about","contact"] as const;
+const KEYS = [
+  "certificates",
+  "experiences",
+  "hackathons",
+  "projects",
+  "researchs",
+  "about",
+  "contact",
+] as const;
 
 export default function TabsClient() {
   const [active, setActive] = useState<(typeof KEYS)[number]>("projects");
@@ -206,7 +255,9 @@ export default function TabsClient() {
   function onKeyDown(e: KeyboardEvent) {
     const idx = KEYS.indexOf(active);
     if (e.key === "ArrowRight") setActive(KEYS[(idx + 1) % KEYS.length]);
-    if (e.key === "ArrowLeft") setActive(KEYS[(idx - 1 + KEYS.length) % KEYS.length]);
+    if (e.key === "ArrowLeft") {
+      setActive(KEYS[(idx - 1 + KEYS.length) % KEYS.length]);
+    }
   }
 
   useEffect(() => {
@@ -215,7 +266,11 @@ export default function TabsClient() {
 
   return (
     <div>
-      <div role="tablist" class="tablist" onKeyDown={(e) => onKeyDown(e as any)}>
+      <div
+        role="tablist"
+        class="tablist"
+        onKeyDown={(e) => onKeyDown(e as any)}
+      >
         {KEYS.map((k) => (
           <button
             ref={(el) => (tabRefs.current[k] = el)}
@@ -223,7 +278,9 @@ export default function TabsClient() {
             aria-selected={active === k}
             aria-controls={`panel-${k}`}
             onClick={() => setActive(k)}
-          >{k}</button>
+          >
+            {k}
+          </button>
         ))}
       </div>
 
@@ -238,7 +295,9 @@ export default function TabsClient() {
 ```
 
 ### 6.2 Using tabs on Home
+
 **`routes/index.tsx`** (redirects to default locale)
+
 ```ts
 import { Handlers } from "$fresh/server.ts";
 export const handler: Handlers = {
@@ -251,12 +310,13 @@ export const handler: Handlers = {
 ```
 
 **`routes/[locale]/index.tsx`** (SSR + islands)
+
 ```tsx
 import Tabs from "../../components/Tabs.tsx";
 import TabsClient from "../../islands/TabsClient.tsx";
 import ProjectsList from "../../islands/ProjectsList.tsx";
 import ContactForm from "../../islands/ContactForm.tsx";
-import { loadUIStrings, loadContent } from "../../utils/i18n.ts";
+import { loadContent, loadUIStrings } from "../../utils/i18n.ts";
 
 export default async function Home(req: Request, ctx: any) {
   const { locale } = ctx.state;
@@ -271,56 +331,80 @@ export default async function Home(req: Request, ctx: any) {
 
   return (
     <main>
-      <Tabs labels={{
-        certificates: t["certificates"],
-        experiences: t["experiences"],
-        hackathons: t["hackathons"],
-        projects: t["projects"],
-        researchs: t["researchs"],
-        about: t["about"],
-        contact: t["contact"],
-      }} />
+      <Tabs
+        labels={{
+          certificates: t["certificates"],
+          experiences: t["experiences"],
+          hackathons: t["hackathons"],
+          projects: t["projects"],
+          researchs: t["researchs"],
+          about: t["about"],
+          contact: t["contact"],
+        }}
+      />
 
       <TabsClient />
 
       {/* Panels via slots convention (simplified) */}
-      <section slot="projects"><ProjectsList locale={locale} /></section>
-      <section slot="about"><article dangerouslySetInnerHTML={{ __html: about.html }} /></section>
+      <section slot="projects">
+        <ProjectsList locale={locale} />
+      </section>
+      <section slot="about">
+        <article dangerouslySetInnerHTML={{ __html: about.html }} />
+      </section>
       <section slot="certificates">{/* render certs */}</section>
       <section slot="experiences">{/* render exps */}</section>
       <section slot="hackathons">{/* render hacks */}</section>
       <section slot="researchs">{/* render researchs */}</section>
-      <section slot="contact"><ContactForm locale={locale} /></section>
+      <section slot="contact">
+        <ContactForm locale={locale} />
+      </section>
     </main>
   );
 }
 ```
 
-> You can replace the `slot` pattern with props or context—use any island composition you prefer.
+> You can replace the `slot` pattern with props or context—use any island
+> composition you prefer.
 
 ---
 
 ## 7) GitHub Projects (API + KV cache)
 
 ### 7.1 Env variables
+
 Create `.env` (see `.env.example`):
+
 ```
 GITHUB_USERNAME=your_github_user
 GITHUB_TOKEN=ghp_... # optional, improves rate limits
 ```
 
 ### 7.2 Server util
+
 **`utils/github.ts`**
+
 ```ts
 export type Repo = {
-  id: number; name: string; description: string | null; html_url: string;
-  language: string | null; stargazers_count: number; topics?: string[];
+  id: number;
+  name: string;
+  description: string | null;
+  html_url: string;
+  language: string | null;
+  stargazers_count: number;
+  topics?: string[];
 };
 
-export async function fetchRepos(user: string, token?: string): Promise<Repo[]> {
+export async function fetchRepos(
+  user: string,
+  token?: string,
+): Promise<Repo[]> {
   const headers: HeadersInit = { "Accept": "application/vnd.github+json" };
   if (token) headers["Authorization"] = `Bearer ${token}`;
-  const res = await fetch(`https://api.github.com/users/${user}/repos?per_page=100&sort=updated`, { headers });
+  const res = await fetch(
+    `https://api.github.com/users/${user}/repos?per_page=100&sort=updated`,
+    { headers },
+  );
   if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
   const data = await res.json();
   return data as Repo[];
@@ -328,12 +412,17 @@ export async function fetchRepos(user: string, token?: string): Promise<Repo[]> 
 ```
 
 ### 7.3 API route with cache (KV optional)
+
 **`utils/kv.ts`**
+
 ```ts
-export const kv = ("Deno" in globalThis && (Deno as any).openKv) ? await (Deno as any).openKv() : undefined;
+export const kv = ("Deno" in globalThis && (Deno as any).openKv)
+  ? await (Deno as any).openKv()
+  : undefined;
 ```
 
 **`routes/api/github-projects.ts`**
+
 ```ts
 import { fetchRepos } from "../../utils/github.ts";
 import { kv } from "../../utils/kv.ts";
@@ -346,7 +435,11 @@ export const handler = {
     const key = ["gh", user];
     if (kv) {
       const cached = await kv.get(key);
-      if (cached.value) return new Response(JSON.stringify(cached.value), { headers: { "content-type": "application/json" } });
+      if (cached.value) {
+        return new Response(JSON.stringify(cached.value), {
+          headers: { "content-type": "application/json" },
+        });
+      }
     }
 
     const repos = await fetchRepos(user, token);
@@ -355,13 +448,17 @@ export const handler = {
 
     if (kv) await kv.set(key, filtered, { expireIn: 1000 * 60 * 15 }); // 15 min
 
-    return new Response(JSON.stringify(filtered), { headers: { "content-type": "application/json" } });
+    return new Response(JSON.stringify(filtered), {
+      headers: { "content-type": "application/json" },
+    });
   },
 };
 ```
 
 ### 7.4 Island to render projects
+
 **`islands/ProjectsList.tsx`**
+
 ```tsx
 import { useEffect, useState } from "preact/hooks";
 
@@ -370,7 +467,9 @@ export default function ProjectsList({ locale }: { locale: string }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`/api/github-projects`).then(r => r.json()).then(setRepos).finally(() => setLoading(false));
+    fetch(`/api/github-projects`).then((r) => r.json()).then(setRepos).finally(
+      () => setLoading(false),
+    );
   }, []);
 
   if (loading) return <p>Loading…</p>;
@@ -394,6 +493,7 @@ export default function ProjectsList({ locale }: { locale: string }) {
 ## 8) Contact Form (emails)
 
 ### 8.1 Env variables
+
 ```
 MAIL_FROM="Portfolio <no-reply@yourdomain.com>"
 MAIL_TO="yourname@domain.com"
@@ -402,7 +502,9 @@ RESEND_API_KEY=re_...
 ```
 
 ### 8.2 API route (Resend example)
+
 **`routes/api/contact.ts`**
+
 ```ts
 export const handler = {
   async POST(req: Request) {
@@ -411,7 +513,9 @@ export const handler = {
     // Simple anti-spam honeypot
     if (guard) return new Response(null, { status: 204 });
 
-    if (!name || !email || !message) return new Response("Bad Request", { status: 400 });
+    if (!name || !email || !message) {
+      return new Response("Bad Request", { status: 400 });
+    }
 
     const apiKey = Deno.env.get("RESEND_API_KEY");
     if (!apiKey) return new Response("Service Unavailable", { status: 503 });
@@ -437,7 +541,9 @@ export const handler = {
 ```
 
 ### 8.3 Contact form island
+
 **`islands/ContactForm.tsx`**
+
 ```tsx
 import { useState } from "preact/hooks";
 
@@ -449,7 +555,10 @@ export default function ContactForm({ locale }: { locale: string }) {
     e.preventDefault();
     const fd = new FormData(e.target as HTMLFormElement);
     const payload = Object.fromEntries(fd.entries());
-    const res = await fetch("/api/contact", { method: "POST", body: JSON.stringify(payload) });
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      body: JSON.stringify(payload),
+    });
     setOk(res.ok || res.status === 204);
     if (!res.ok) setErr("Failed to send");
   }
@@ -468,12 +577,15 @@ export default function ContactForm({ locale }: { locale: string }) {
 }
 ```
 
-> Replace Resend with SES/SMTP by calling their APIs/servers inside the same route.
+> Replace Resend with SES/SMTP by calling their APIs/servers inside the same
+> route.
 
 ---
 
 ## 9) Data Files per Locale
+
 Example `data/es/experiences.json`:
+
 ```json
 [
   {
@@ -485,12 +597,16 @@ Example `data/es/experiences.json`:
   }
 ]
 ```
-Use similar JSON for `certificates`, `hackathons`, `researchs`, and `about` (can be HTML/markdown processed server‑side).
+
+Use similar JSON for `certificates`, `hackathons`, `researchs`, and `about` (can
+be HTML/markdown processed server‑side).
 
 ---
 
 ## 10) Root Layout & SEO
+
 **`routes/_app.tsx`**
+
 ```tsx
 export default function App({ Component, state }: any) {
   const locale = state.locale ?? "en";
@@ -518,7 +634,9 @@ Add `/robots.txt` and `/sitemap.xml` in `routes/` as needed.
 ---
 
 ## 11) Deno tasks & Config
+
 **`deno.json`** (example)
+
 ```json
 {
   "tasks": {
@@ -533,6 +651,7 @@ Add `/robots.txt` and `/sitemap.xml` in `routes/` as needed.
 ```
 
 **`import_map.json`** (example)
+
 ```json
 {
   "imports": {
@@ -548,7 +667,9 @@ Add `/robots.txt` and `/sitemap.xml` in `routes/` as needed.
 ---
 
 ## 12) Environment Variables
+
 Create `.env` based on example:
+
 ```
 # GitHub
 GITHUB_USERNAME=
@@ -560,30 +681,38 @@ MAIL_TO=
 # i18n
 DEFAULT_LOCALE=en
 ```
+
 Load with `--env` as shown in tasks.
 
 ---
 
 ## 13) Testing
+
 - **Unit tests:** `deno test` for utilities and server handlers.
-- **Accessibility:** Use `axe` (in browser) and keyboard‑only navigation for the tabs.
+- **Accessibility:** Use `axe` (in browser) and keyboard‑only navigation for the
+  tabs.
 - **Visual:** Consider Playwright for E2E (Fresh runs great under it).
 
 ---
 
 ## 14) Deployment
+
 ### Option A: Deno Deploy
+
 - Link repo → Deno Deploy → set environment variables.
 - KV: enable Deno KV if using caching.
 
 ### Option B: Self‑host (Deno on VM/container)
+
 - `deno run -A --env main.ts`
 - Use a reverse proxy (Nginx/Caddy) for TLS & caching.
 
 ---
 
 ## 15) CI/CD (GitHub Actions example)
+
 `.github/workflows/ci.yml`
+
 ```yaml
 name: CI
 on: [push, pull_request]
@@ -599,11 +728,13 @@ jobs:
       - run: deno test -A
 ```
 
-> For Deno Deploy integration, add a deploy job using `deployctl` or Deno Deploy GitHub app.
+> For Deno Deploy integration, add a deploy job using `deployctl` or Deno Deploy
+> GitHub app.
 
 ---
 
 ## 16) Content Workflow
+
 - Update `data/{locale}/*.json` for each language.
 - Keep `data/i18n/{locale}.json` for UI strings in sync.
 - Add images to `static/` and reference with absolute `/img/...` paths.
@@ -611,13 +742,16 @@ jobs:
 ---
 
 ## 17) Accessibility & UX Notes
-- Tabs must be keyboard navigable (Arrow keys, Home/End) and use proper ARIA roles.
+
+- Tabs must be keyboard navigable (Arrow keys, Home/End) and use proper ARIA
+  roles.
 - Provide focus styles, sufficient color contrast, and skip links.
 - Forms: label all inputs, show errors inline, and confirm submission.
 
 ---
 
 ## 18) Roadmap (optional)
+
 - Markdown support for content with server‑side rendering.
 - Search across content.
 - Dark mode toggle (island).
@@ -627,5 +761,5 @@ jobs:
 ---
 
 ## 19) License
-MIT (or your preferred license).
 
+MIT (or your preferred license).

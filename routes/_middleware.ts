@@ -2,7 +2,8 @@ import { define } from "../utils.ts";
 
 const SUPPORTED = new Set(["en", "es"]);
 const isStatic = (p: string) =>
-  p.includes(".") || p.startsWith("/_fresh") || p.startsWith("/assets") || p.startsWith("/favicon");
+  p.includes(".") || p.startsWith("/_fresh") || p.startsWith("/assets") ||
+  p.startsWith("/favicon");
 
 export default define.middleware(async (ctx) => {
   const url = new URL(ctx.req.url);
@@ -29,5 +30,3 @@ export default define.middleware(async (ctx) => {
   url.pathname = to;
   return Response.redirect(url);
 });
-
-

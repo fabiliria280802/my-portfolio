@@ -1,45 +1,54 @@
-// routes/[locale]/index.tsx
 console.log("[route:/[locale]] module loaded");
 
 import Tabs from "../../components/Tabs.tsx";
 import TabsClient from "../../islands/TabsClient.tsx";
+
 import ProjectsList from "../../islands/ProjectsList.tsx";
 import ContactForm from "../../islands/ContactForm.tsx";
-
-import {
-  loadUIStrings,
-  SUPPORTED_LOCALES,
-  DEFAULT_LOCALE,
-} from "../../utils/i18n.ts";
-
 import SectionShell from "../../components/SectionShell.tsx";
 import ResearchCarousel from "../../islands/ResearchCarousel.tsx";
 import ExperiencesTimeline from "../../islands/ExperiencesTimeline.tsx";
 import HackathonsShowcase from "../../islands/HackathonsShowcase.tsx";
 import CertificatesFlipGrid from "../../islands/CertificatesFlipGrid.tsx";
-import { loadContent } from "../../utils/content.ts";
 import AboutMeTerminal from "../../islands/AboutMeTerminal.tsx";
+
+import {
+  DEFAULT_LOCALE,
+  loadUIStrings,
+  SUPPORTED_LOCALES,
+} from "../../utils/i18n.ts";
+import { loadContent } from "../../utils/content.ts";
 import { PageProps } from "fresh";
 
 export default async function LocalizedHome(ctx: PageProps) {
   const stateLocale = (ctx.state as { locale?: string })?.locale;
   const paramLocale = ctx.params?.locale;
 
-  // DEBUG: params y state
-  console.log("[route] params.locale:", paramLocale, " state.locale:", stateLocale);
+  console.log(
+    "[route] params.locale:",
+    paramLocale,
+    " state.locale:",
+    stateLocale,
+  );
   console.log("[route] SUPPORTED_LOCALES:", SUPPORTED_LOCALES);
 
-  const chosen =
-    (stateLocale ?? paramLocale) && SUPPORTED_LOCALES.includes(stateLocale ?? paramLocale!)
-      ? (stateLocale ?? paramLocale)!
-      : DEFAULT_LOCALE;
+  const chosen = (stateLocale ?? paramLocale) &&
+      SUPPORTED_LOCALES.includes(stateLocale ?? paramLocale!)
+    ? (stateLocale ?? paramLocale)!
+    : DEFAULT_LOCALE;
 
   console.log("[route] chosen locale:", chosen);
 
   const t = loadUIStrings(chosen);
 
-  // carga de secciones
-  const keys = ["about", "certificates", "experiences", "hackathons", "projects", "researchs"];
+  const keys = [
+    "about",
+    "certificates",
+    "experiences",
+    "hackathons",
+    "projects",
+    "researchs",
+  ];
   console.log("[route] will load content keys:", keys);
 
   const [about, certs, exps, hacks, projs, researchs] = await Promise.all([
@@ -60,50 +69,85 @@ export default async function LocalizedHome(ctx: PageProps) {
     researchs: !!researchs,
   });
 
+  const labels = {
+    certificates: t["certificates"] ?? "Certificates",
+    experiences: t["experiences"] ?? "Experiences",
+    hackathons: t["hackathons"] ?? "Hackathons",
+    projects: t["projects"] ?? "Projects",
+    researchs: t["researchs"] ?? "Research",
+    about: t["about"] ?? "About",
+    contact: t["contact"] ?? "Contact",
+  };
+
   return (
-    <main>
-      <Tabs
-        labels={{
-          certificates: t["certificates"],
-          experiences: t["experiences"],
-          hackathons: t["hackathons"],
-          projects: t["projects"],
-          researchs: t["researchs"],
-          about: t["about"],
-          contact: t["contact"],
-        }}
-      />
-
-      <TabsClient />
-
-      <SectionShell title={t["projects"]}>
-        <ProjectsList locale={chosen} />
+    <main class="container mx-auto px-4 py-8">
+      <Tabs labels={labels} />
+      <TabsClient initialActive="about" labels={labels} />
+      <SectionShell title={labels.projects}>
+        <section
+          id="panel-projects"
+          role="tabpanel"
+          hidden
+          aria-labelledby="tab-projects"
+        >
+          <ProjectsList locale={chosen} />
+        </section>
       </SectionShell>
-
-      <SectionShell title={t["about"]}>
-        <AboutMeTerminal locale={chosen} />
+      <SectionShell title={labels.about}>
+        <section id="panel-about" role="tabpanel" aria-labelledby="tab-about">
+          <AboutMeTerminal locale={chosen} initialData={about as any} />
+        </section>
       </SectionShell>
-
-      <SectionShell title={t["certificates"]}>
-        <CertificatesFlipGrid locale={chosen} />
+      <SectionShell title={labels.certificates}>
+        <section
+          id="panel-certificates"
+          role="tabpanel"
+          hidden
+          aria-labelledby="tab-certificates"
+        >
+          <CertificatesFlipGrid locale={chosen} />
+        </section>
       </SectionShell>
-
-      <SectionShell title={t["experiences"]}>
-        <ExperiencesTimeline locale={chosen} />
+      <SectionShell title={labels.experiences}>
+        <section
+          id="panel-experiences"
+          role="tabpanel"
+          hidden
+          aria-labelledby="tab-experiences"
+        >
+          <ExperiencesTimeline locale={chosen} />
+        </section>
       </SectionShell>
-
-      <SectionShell title={t["hackathons"]}>
-        <HackathonsShowcase locale={chosen} />
+      <SectionShell title={labels.hackathons}>
+        <section
+          id="panel-hackathons"
+          role="tabpanel"
+          hidden
+          aria-labelledby="tab-hackathons"
+        >
+          <HackathonsShowcase locale={chosen} />
+        </section>
       </SectionShell>
-
-      <SectionShell title={t["researchs"]}>
-        <ResearchCarousel locale={chosen} />
+      <SectionShell title={labels.researchs}>
+        <section
+          id="panel-researchs"
+          role="tabpanel"
+          hidden
+          aria-labelledby="tab-researchs"
+        >
+          <ResearchCarousel locale={chosen} />
+        </section>
       </SectionShell>
-
-      <SectionShell title={t["contact"]}>
-        <ContactForm locale={chosen} />
+      <SectionShell title={labels.contact}>
+        <section
+          id="panel-contact"
+          role="tabpanel"
+          hidden
+          aria-labelledby="tab-contact"
+        >
+          <ContactForm locale={chosen} />
+        </section>
       </SectionShell>
     </main>
   );
 }
-
